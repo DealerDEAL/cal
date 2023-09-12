@@ -1,0 +1,110 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main()
+{
+    int d;
+    cout<<"\n1 or 2\n";
+    cin>>d;
+    if(d==1){
+        int Total_Loan_Amount, term, Interest_Rate, type;
+        int chek1=0, chek2=0, chek3=0;
+        bool jester_shild=true;
+        while(jester_shild==true){
+            cout<<"\ntotal loan amount\n";
+            cin>>Total_Loan_Amount;
+            if(Total_Loan_Amount>=10000){
+                chek1=1;
+            }
+            cout<<"\nterm month\n";
+            cin>>term;
+            if(term>=12){
+                chek2=1;
+            }
+            cout<<"\ninterest rate\n";
+            cin>>Interest_Rate;
+            if(Interest_Rate>0){
+                chek3=1;
+                Interest_Rate=Interest_Rate/100;
+            }
+            if(chek1==1 && chek2==1 && chek3==1){
+                jester_shild=false;
+            }
+        }
+        
+        //А=К*(П/(1+П)-М-1), где К – сумма кредита, П – процентная ставка, М – количество месяцев
+        //Сд = К / М, где: К — тело кредита; М — количество месяцев кредита.
+        
+        cout<<"\ntype 1 - annuetniy, 2 - diferenc\n";
+        cin>>type;
+        int annuetniy, diferenc, ostatok;
+        ostatok=Total_Loan_Amount;
+        if(type==1){
+            annuetniy=ostatok*(Interest_Rate/(1-pow((1+Interest_Rate),(-1*term-1))));
+            cout<<"\nmonth staw\n"<<annuetniy;
+        }
+        if(type==2){
+            int sd, sp;
+            sd=Total_Loan_Amount/term;
+            sp=(ostatok*Interest_Rate*(term*30))/365;
+            diferenc=sd+sp;
+            cout<<"\nmonth staw\n"<<diferenc;
+        }
+    }
+    
+    if(d==2){
+        int Total_Loan_Amount, term, Interest_Rate, type, nalog, cap_proz, period_viplat, spisok_popoln, spisok_chast_snatiy;
+        int chek1=0, chek2=0, chek3=0, chek4=0, chek5=0, chek6=0, chek7=0, chek8=0;
+        bool jester_shild=true;
+        while(jester_shild==true){
+            cout<<"\ntotal loan amount\n";
+            cin>>Total_Loan_Amount;
+            if(Total_Loan_Amount>=10000){
+                chek1=1;
+            }
+            cout<<"\nterm month\n";
+            cin>>term;
+            if(term>=12){
+                chek2=1;
+            }
+            cout<<"\ninterest rate\n";
+            cin>>Interest_Rate;
+            if(Interest_Rate>0){
+                chek3=1;
+                Interest_Rate=Interest_Rate/100;
+            }
+            cout<<"\nnalog\n";
+            cin>>nalog;
+            if(nalog>0){
+                chek4=1;
+            }
+            cout<<"\ncap_proz\n";
+            cin>>cap_proz;
+            if(cap_proz>0){
+                chek5=1;
+            }
+            cout<<"\nperiod_viplat\n";
+            cin>>period_viplat;
+            if(period_viplat>=12){
+                chek6=1;
+            }
+            cout<<"\nspisok_popoln\n";
+            cin>>spisok_popoln;
+            if(spisok_popoln>0){
+                chek7=1;
+            }
+            cout<<"spisok_chast_snatiy";
+            cin>>spisok_chast_snatiy;
+            if(spisok_chast_snatiy>0){
+                chek8=1;
+            }
+            if(chek1==1 && chek2==1 && chek3==1 && chek4==1 && chek5==1 && chek6==1 && chek7==1 && chek8==1){
+                jester_shild=false;
+            }
+        }
+    }
+
+    return 0;
+}
