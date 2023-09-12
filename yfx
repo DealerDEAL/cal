@@ -1,0 +1,15 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int Total_Loan_Amount;
+    bool jester_shild=true;
+    while(jester_shild==true){
+    cout<<"total loan amount";
+    jester_shild=false;
+    }
+
+    return 0;
+}
